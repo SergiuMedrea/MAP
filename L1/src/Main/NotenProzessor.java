@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.Arrays;
+
 public class NotenProzessor {
     public int[] nichtAusreichendeNoten(int[] note) {
 
@@ -41,4 +43,28 @@ public class NotenProzessor {
         return result;
     }
 
+    public double durchschnittswert(int[] note) {
+        double durchscnittsnote = 0;
+        int sum = 0;
+
+        for(int i = 0; i < note.length; i++) {
+            sum += note[i];
+        }
+        durchscnittsnote = (double) sum / note.length;
+        return durchscnittsnote;
+    }
+
+    public int[] abgerundeteNoten(int[] note) {
+        int[] noten = new int[note.length - 1];
+        for(int i = 0; i < note.length; i++) {
+            addToArray(noten, round(note[i]));
+        }
+        return noten;
+    }
+
+    public int maximaleAbgerundeteNote(int[] note) {
+        int[] roundedNotes = abgerundeteNoten(note);
+        Arrays.sort(note);
+        return note[note.length - 1];
+    }
 }
