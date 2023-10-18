@@ -20,5 +20,14 @@ public class TestRunner {
         arrayOperationsTest.maxSum();
         arrayOperationsTest.minSum();
         System.out.println("Tests for P2 passed\n");
+
+        NumbersAsArrayOperationsTest numbersAsArrayOperationsTest = new NumbersAsArrayOperationsTest();
+
+        System.out.println("\nTest P3\n");
+        numbersAsArrayOperationsTest.sameLengthNumbersSum();
+        numbersAsArrayOperationsTest.sameLengthNumbersDifference();
+        numbersAsArrayOperationsTest.singleDigitNumberMultiplication();
+        numbersAsArrayOperationsTest.singleDigitNumberDivision();
+        System.out.println("Tests for P3 passed\n");
     }
 }

@@ -9,8 +9,8 @@ public class NumbersAsArrayOperations {
                 this.number2 = number2;
         }
 
-        //Calculates the sum between the numbers that have the same number of digits
-        public void sameLengthNumbersSum() {
+        // Calculates the sum between the numbers that have the same number of digits
+        public int[] sameLengthNumbersSum() {
                 int[] sum = new int[number1.length + 1];
                 int carry = 0;
 
@@ -26,16 +26,16 @@ public class NumbersAsArrayOperations {
                         }
                         sum[0] = carry;
 
-                        for (int i = 0; i < sum.length; i++) {
-                                System.out.println(sum[i] + " ");
-                        }
                 } else {
                         System.out.println("Numbers must have the same length");
+                        return null;
                 }
+                return sum;
+
         }
 
-        //Calculates the sum between the numbers that have the same number of digits
-        public void sameLengthNumbersDifference() {
+        // Calculates the sum between the numbers that have the same number of digits
+        public int[] sameLengthNumbersDifference() {
                 int[] diff = new int[number1.length];
                 int carry = 0;
 
@@ -53,17 +53,15 @@ public class NumbersAsArrayOperations {
                                 }
                                 diff[i] = digitDiff;
                         }
-
-                        for (int i = 0; i < diff.length; i++) {
-                                System.out.println(diff[i] + " ");
-                        }
                 } else {
                         System.out.println("Numbers must have the same length");
+                        return null;
                 }
+                return diff;
         }
 
-        //Calculate the multiplication between a big number and a single digit number
-        public void singleDigitNumberMultiplication(int n) {
+        // Calculate the multiplication between a big number and a single digit number
+        public int[] singleDigitNumberMultiplication(int n) {
                 int[] mul = new int[number1.length + 1];
                 int carry = 0;
 
@@ -75,13 +73,11 @@ public class NumbersAsArrayOperations {
                 }
                 mul[0] = carry;
 
-                for(int i = 0 ; i < mul.length; i++) {
-                        System.out.println(mul[i] + " ");
-                }
+                return mul;
         }
 
-        //Calculate the division between a big number and a single digit number
-        public void singleDigitNumberDivision(int n) {
+        // Calculate the division between a big number and a single digit number
+        public int[] singleDigitNumberDivision(int n) {
                 int[] div = new int[number1.length];
                 int carry = 0;
 
@@ -92,11 +88,10 @@ public class NumbersAsArrayOperations {
                                 carry = digitDiv % n;
                                 div[i] = digitDiv / n;
                         }
-                        for(int i = 0; i < div.length; i++) {
-                                System.out.println(div[i] + " ");
-                        }
                 } else {
                         System.out.println("The division with 0  is not accepted");
+                        return null;
                 }
+                return div;
         }
 }
