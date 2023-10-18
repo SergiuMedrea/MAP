@@ -14,11 +14,16 @@ public class ElectronicShop {
 
     //Returns the cheapest keyboard
     public int cheapestKeyboard() {
-        int min = 999999999;
+        int min = Integer.MAX_VALUE;
 
         for(int i = 0; i < keyboardPrices.length; i++) {
-            if(keyboardPrices[i] < min) {
-                min = keyboardPrices[i];
+            if(keyboardPrices[i] >= 0) {
+                if (keyboardPrices[i] < min) {
+                    min = keyboardPrices[i];
+                }
+            } else {
+                System.out.println("Price of the keyboard must be a positive number");
+                return 0;
             }
         }
         return min;
@@ -29,14 +34,24 @@ public class ElectronicShop {
         int max = 0;
 
         for(int i = 0; i < keyboardPrices.length; i++) {
-            if(keyboardPrices[i] > max) {
-                max = keyboardPrices[i];
+            if(keyboardPrices[i] >= 0) {
+                if (keyboardPrices[i] > max) {
+                    max = keyboardPrices[i];
+                }
+            } else {
+                System.out.println("Price of the keyboard must be a positive number");
+                return 0;
             }
         }
 
         for(int i = 0; i < usbDrivePrices.length; i++) {
-            if(usbDrivePrices[i] > max) {
-                max = usbDrivePrices[i];
+            if(usbDrivePrices[i] >= 0) {
+                if (usbDrivePrices[i] > max) {
+                    max = usbDrivePrices[i];
+                }
+            } else {
+                System.out.println("Price of the USB Drive must be a positive number");
+                return 0;
             }
         }
         return max;
@@ -44,6 +59,10 @@ public class ElectronicShop {
 
     //Returns the most expensive keyboard that someone can buy with a certain budget
     public int mostExpensiveAffordableKeyboard(int budget) {
+        if(budget < 0) {
+            System.out.println("Budget must be a positive number");
+            return 0;
+        }
         int maxPrice = 0;
         for(int price : keyboardPrices) {
             if(price < budget && price > maxPrice) {
@@ -55,6 +74,11 @@ public class ElectronicShop {
 
     //Returns the amount of money that someone spends on keyboard and usb drive
     public int amountOfMoneySpent(int budget) {
+        if(budget <= 0) {
+            System.out.println("Budget must be a positive number");
+            return 0;
+        }
+
         int moneySpent = 0;
 
         Arrays.sort(keyboardPrices);
@@ -62,8 +86,9 @@ public class ElectronicShop {
 
         for(int i = keyboardPrices.length - 1; i >= 0; i--) {
             for(int j = usbDrivePrices.length - 1; j >= 0; j--) {
-                if(keyboardPrices[i] + usbDrivePrices[j] < budget && keyboardPrices[i] + usbDrivePrices[j] > moneySpent) {
-                    moneySpent = keyboardPrices[i] + usbDrivePrices[i];
+                int totalCost = keyboardPrices[i] + usbDrivePrices[j];
+                if(totalCost <= budget && totalCost > moneySpent) {
+                    moneySpent = totalCost;
                 }
             }
         }

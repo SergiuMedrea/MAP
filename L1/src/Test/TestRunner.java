@@ -29,5 +29,14 @@ public class TestRunner {
         numbersAsArrayOperationsTest.singleDigitNumberMultiplication();
         numbersAsArrayOperationsTest.singleDigitNumberDivision();
         System.out.println("Tests for P3 passed\n");
+
+        ElectronicShopTest electronicShopTest = new ElectronicShopTest();
+
+        System.out.println("\nTest P4\n");
+        electronicShopTest.cheapestKeyboard();
+        electronicShopTest.mostExpensiveObject();
+        electronicShopTest.mostExpensiveAffordableKeyboard();
+        electronicShopTest.amountOfMoneySpent();
+        System.out.println("Tests for P4 passed\n");
     }
 }
