@@ -23,6 +23,10 @@ public class NotenProzessor {
     }
 
     public int round(int note) {
+        if(note < 0 || note > 100) {
+            System.out.println("Noten soll zwischen 0 und 100 sein.");
+            return 0;
+        }
         if (note < 38) {
             return note;
         } else {
@@ -44,27 +48,43 @@ public class NotenProzessor {
     }
 
     public double durchschnittswert(int[] note) {
-        double durchscnittsnote = 0;
+        double durchscnittsnote;
         int sum = 0;
 
-        for(int i = 0; i < note.length; i++) {
-            sum += note[i];
+        for (int j : note) {
+            if (j < 0 || j > 100) {
+                System.out.println("Noten soll zwischen 0 und 100 sein.");
+                return 0.0;
+            }
+        }
+
+        if(note.length > 0) {
+            for (int i = 0; i < note.length; i++) {
+                sum += note[i];
+            }
+        } else {
+            return 0.0;
         }
         durchscnittsnote = (double) sum / note.length;
         return durchscnittsnote;
     }
 
     public int[] abgerundeteNoten(int[] note) {
-        int[] noten = new int[note.length - 1];
+        int[] noten = new int[note.length];
         for(int i = 0; i < note.length; i++) {
-            addToArray(noten, round(note[i]));
+            noten[i] = round(note[i]);
         }
         return noten;
     }
 
     public int maximaleAbgerundeteNote(int[] note) {
-        int[] roundedNotes = abgerundeteNoten(note);
-        Arrays.sort(note);
-        return note[note.length - 1];
+        if(note.length > 0) {
+            int[] roundedNotes = abgerundeteNoten(note);
+            Arrays.sort(roundedNotes);
+            return roundedNotes[roundedNotes.length - 1];
+        } else {
+            return 0;
+        }
     }
+
 }
