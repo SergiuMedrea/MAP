@@ -15,10 +15,10 @@ public class TestRunner {
         ArrayOperationsTest arrayOperationsTest = new ArrayOperationsTest();
 
         System.out.println("\nTest P2\n");
-        arrayOperationsTest.maxNumberTest();
-        arrayOperationsTest.minNumberTest();
-        arrayOperationsTest.maxSumTest();
-        arrayOperationsTest.minSumTest();
+        arrayOperationsTest.maxNumber();
+        arrayOperationsTest.minNumber();
+        arrayOperationsTest.maxSum();
+        arrayOperationsTest.minSum();
         System.out.println("Tests for P2 passed\n");
     }
 }

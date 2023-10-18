@@ -7,9 +7,9 @@ public class ArrayOperations {
         this.numbers = numbers;
     }
 
-    //Returns the biggest number in the array
+    // Returns the biggest number in the array
     public int maxNumber() {
-        int max = -999999999;
+        int max = Integer.MIN_VALUE;
 
         for (int i : numbers) {
             if(i > max) {
@@ -20,9 +20,9 @@ public class ArrayOperations {
         return max;
     }
 
-    //Returns the smallest number in the array
+    // Returns the smallest number in the array
     public int minNumber() {
-        int min = 999999999;
+        int min = Integer.MAX_VALUE;
 
         for (int i : numbers) {
             if(i < min) {
@@ -33,7 +33,7 @@ public class ArrayOperations {
         return min;
     }
 
-    //Calculates the maximal sum of n-1 numbers
+    // Calculates the maximal sum of n-1 numbers
     public int maxSum() {
         int sum = 0;
 
@@ -54,7 +54,7 @@ public class ArrayOperations {
         return sum;
     }
 
-    //Calculates the minimal sum of n-1 numbers
+    // Calculates the minimal sum of n-1 numbers
     public int minSum() {
         int sum = 0;
 
