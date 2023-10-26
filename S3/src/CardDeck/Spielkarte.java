@@ -1,3 +1,7 @@
+package CardDeck;
+
+import CardDeck.Colour;
+
 public class Spielkarte {
     private int value;
     private Colour color;
@@ -16,7 +20,7 @@ public class Spielkarte {
 
     @Override
     public String toString() {
-        return "Spielkarte{" +
+        return "CardDeck.Spielkarte{" +
                 "value=" + value +
                 ", color='" + color + '\'' +
                 '}';
